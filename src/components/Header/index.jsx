@@ -1,9 +1,9 @@
 import React from "react";
-import DropdownProfile from "./header/DropdownProfile";
-import ButtonNotification from "./header/ButtonNotification";
-import HeaderLogo from "./header/HeaderLogo";
+import DropdownProfile from "./DropdownProfile";
+import ButtonNotification from "./ButtonNotification";
+import HeaderLogo from "./HeaderLogo";
 
-const Header = () => {
+const Index = () => {
     return (
         <div className="site__header">
                 <div className="navbar">
@@ -19,4 +19,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default Index;

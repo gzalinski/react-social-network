@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Footer = () => {
+const Index = () => {
     return (
         <footer className="site-footer">
             <div className="items-center grid-flow-col">
@@ -39,4 +39,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default Index;
