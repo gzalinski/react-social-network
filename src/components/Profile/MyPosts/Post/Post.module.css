@@ -1,3 +1,3 @@
-.posts{
-
+.item {
+    @apply card card-side bg-base-100 shadow-xl;
 }

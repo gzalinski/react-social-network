@@ -1,8 +1,9 @@
 import React  from "react";
+import MyPosts from "./MyPosts/MyPosts";
 const Profile = () =>{
     return (
         <div className="content">
-            sss
+            <MyPosts/>
         </div>
     );
 }
