@@ -1,0 +1,15 @@
+.nav {
+    @apply bg-base-100;
+}
+
+.list {
+    @apply p-2 rounded-md menu;
+}
+
+.item {
+
+}
+
+.active{
+    background: gold;
+}

@@ -1,13 +1,14 @@
-import Sidebar from "./Sidebar";
-import Content from "./Content";
+import Menu from "./navs/menu";
+import Profile from "./Profile";
 
 const Main = () => {
     return (
-        <main className="site-main">
-            <div className="container">
-                <Sidebar />
-                <Content />
-            </div>
+        <main className="site__main">
+            <aside className="sidebar">
+                <Menu/>
+            </aside>
+
+            <Profile/>
         </main>
     );
 }

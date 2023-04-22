@@ -1,10 +1,10 @@
 import React  from "react";
-const Content = () =>{
+const Profile = () =>{
     return (
         <div className="content">
-
+            sss
         </div>
     );
 }
 
-export default  Content;
+export default  Profile;

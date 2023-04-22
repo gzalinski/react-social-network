@@ -22,26 +22,35 @@ body {
 }
 
 .site{
-
-  @apply bg-base-200;
+  @apply bg-base-200 overflow-x-hidden;
 }
 
-.site-wrapper{
+.site__wrapper{
+  max-width: 1024px;
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.site-header{
-  @apply mb-8 bg-base-100;
+.site__main{
+  @apply flex mt-8 mb-16 gap-8;
 }
 
-.sidebar{
-
+.site__main > .sidebar{
+  flex-basis: 220px;
 }
 
-.site-footer__wrapper{
-   @apply bg-neutral text-neutral-content;
+.site__main > .content{
+  flex: 1 1 auto;
 }
 
+.site-footer{
+  @apply bg-neutral text-neutral-content  footer items-center p-4;
+}
+
+.site__header{
+  @apply bg-base-100;
+}
