@@ -1,3 +1,19 @@
-.item{
+.dialogs{
     background: red;
+}
+
+.dialogs__items{
+
+}
+
+.dialog{
+    background: yellow;
+}
+
+.messages{
+
+}
+
+.message{
+
 }
