@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Menu from "./components/Sidebar/menu";
 import Profile from "./components/Profile";
+import Dialogs from "./components/Dialogs";
 
 function App() {
     return (
@@ -12,8 +13,10 @@ function App() {
                     <aside className="sidebar">
                         <Menu/>
                     </aside>
-
-                    <Profile/>
+                    <div className="site-content">
+                        <Profile/>
+                        <Dialogs/>
+                    </div>
                 </main>
                 <Footer/>
             </div>

@@ -1,11 +1,7 @@
 import React  from "react";
 import MyPosts from "./MyPosts/MyPosts";
 const Profile = () =>{
-    return (
-        <div className="content">
-            <MyPosts/>
-        </div>
-    );
+    return (<MyPosts/>);
 }
 
 export default  Profile;
