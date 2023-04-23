@@ -1,26 +1,29 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Menu from "./components/Sidebar/menu";
-import Profile from "./components/Profile";
-import Dialogs from "./components/Dialogs";
+import Profile from "./components/Profile/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-function App() {
+const App = (props) => {
     return (
-        <div className="site">
+        <BrowserRouter>
             <div className="site__wrapper">
                 <Header/>
                 <main className="site__main">
                     <aside className="sidebar">
                         <Menu/>
                     </aside>
-                    <div className="site-content">
-                        <Profile/>
-                        <Dialogs/>
+                    <div className="site__content">
+                        <Routes>
+                            <Route path='/profile' element={<Profile/>}/>
+                            <Route path='/dialogs' element={<Dialogs/>}/>
+                        </Routes>
                     </div>
                 </main>
                 <Footer/>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 
