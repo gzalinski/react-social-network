@@ -16,7 +16,7 @@ const App = (props) => {
                     </aside>
                     <div className="site__content">
                         <Routes>
-                            <Route exact path='/profile' element={<Profile/>}/>
+                            <Route path='/profile' element={<Profile/>}/>
                             <Route path='/dialogs' element={<Dialogs/>}/>
                         </Routes>
                     </div>
