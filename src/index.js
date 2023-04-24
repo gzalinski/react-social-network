@@ -1,11 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
-
 import reportWebVitals from './reportWebVitals';
-import {rerenderEntireTree} from "./render";
-import state from "./store/state";
+import state, {subscribe,addPost,addMessage, updateNewPostText, updateNewMessageText} from "./store/state";
+import App from "./App";
+const rerenderEntireTree = (state) => {
+    ReactDOM.render(
+        <App state={state}
+             addPost={addPost}
+             updateNewPostText={updateNewPostText}
+             addMessage={addMessage}
+             updateNewMessageText={updateNewMessageText}  />,
+        document.getElementById('root')
+    );
+};
 
 rerenderEntireTree(state);
+subscribe(rerenderEntireTree)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
