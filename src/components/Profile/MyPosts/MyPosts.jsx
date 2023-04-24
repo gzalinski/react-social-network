@@ -3,15 +3,9 @@ import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let dataPosts = [
-        { id: 1, title: "title 1", description: "description 1"},
-        { id: 2, title: "title 2", description: "description 2"},
-        { id: 3, title: "title 3", description: "description 3"},
-    ]
-
-    let postItems = dataPosts.map(item => <Post title={item.title} description={item.description} />)
+    let postItems = props.posts.map(item => <Post title={item.title} description={item.description} />)
 
     return (
         <div>
