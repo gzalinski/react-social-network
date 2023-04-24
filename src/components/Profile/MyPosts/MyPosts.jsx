@@ -11,6 +11,7 @@ const MyPosts = (props) => {
     //
     const addPost = () =>{
       const text = elNewPostText.current.value;
+        elNewPostText.current.value = '' //clear textarea
         props.addPost(text)
     }
 
