@@ -1,0 +1,12 @@
+.dialog{
+    @apply flex p-0.5 items-center justify-start h-auto;
+    min-height: auto;
+}
+
+.dialogAvatar{
+    @apply avatar mr-2;
+}
+
+.dialogAvatar img{
+    @apply w-7 rounded-full;
+}

@@ -1,19 +1,28 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: auto 180px;
+    @apply bg-base-100 rounded-lg h-full;
+}
+
+.sidebar{
+    @apply py-4 px-2;
+    background-color: hsla(var(--b2) / .5);
+}
+
 .dialogs{
-    background: red;
+    @apply flex flex-col gap-1 overflow-y-auto h-full;
 }
 
-.dialogs__items{
-
+.main{
+    @apply flex flex-col p-4 h-full;
 }
 
-.dialog{
-    background: yellow;
+.formAddMessage{
+    @apply overflow-hidden mt-auto p-2 flex  items-start gap-2;
 }
 
-.messages{
-
-}
-
-.message{
-
+.formAddMessage textarea{
+    @apply w-full rounded-md p-4;
+    background-color: hsla(var(--b2) / .5);
+    min-height: 100px;
 }
