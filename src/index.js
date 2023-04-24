@@ -4,32 +4,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import state from "./store/state";
+import {addPost} from "./store/state";
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
-let dataPosts = [
-    { id: 1, title: "title 1", description: "description 1"},
-    { id: 2, title: "title 2", description: "description 2"},
-    { id: 3, title: "title 3", description: "description 3"},
-]
-
-const dataDialogs = [
-    {"id": 1, "name": "Dimych"},
-    {"id": 2, "name": "Andrey"},
-    {"id": 3, "name": "Sveta"},
-    {"id": 4, "name": "Sasha"},
-    {"id": 5, "name": "Viktor"}
-]
-
-const dataMessages = [
-    {"id": 1, "text": "Hi!"},
-    {"id": 2, "text": "How are you ?"},
-    {"id": 3, "text": ":)"}
-]
 
 root.render(
   <React.StrictMode>
-    <App posts={dataPosts} dialogs={dataDialogs} messages={dataMessages} />
+    <App state={state} addPost={addPost} />
   </React.StrictMode>
 );
 

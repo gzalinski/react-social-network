@@ -3,17 +3,24 @@ import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
-const MyPosts = ({posts = []}) => {
+const MyPosts = (props) => {
 
-    let postItems = posts.map(item => <Post title={item.title} description={item.description} />)
+    let postItems = props?.posts?.map(item => <Post title={item.title} description={item.description} />)
+
+    const elNewPostText = React.useRef();
+    //
+    const addPost = () =>{
+      const text = elNewPostText.current.value;
+        props.addPost(text)
+    }
 
     return (
         <div>
             My posts
             <div>
                 <h3>New post</h3>
-                <textarea></textarea>
-                <button>Add Post</button>
+                <textarea ref={elNewPostText}></textarea>
+                <button onClick={addPost}>Add Post</button>
             </div>
             <div className={s.posts}>
                 {postItems}
