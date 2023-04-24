@@ -4,6 +4,15 @@ import Post from "./Post/Post";
 
 
 const MyPosts = () => {
+
+    let dataPosts = [
+        { id: 1, title: "title 1", description: "description 1"},
+        { id: 2, title: "title 2", description: "description 2"},
+        { id: 3, title: "title 3", description: "description 3"},
+    ]
+
+    let postItems = dataPosts.map(item => <Post title={item.title} description={item.description} />)
+
     return (
         <div>
             My posts
@@ -13,9 +22,7 @@ const MyPosts = () => {
                 <button>Add Post</button>
             </div>
             <div className={s.posts}>
-                <Post description='Hi, how are you' title='Title 1'/>
-                <Post description='Hi, how are you 2' title='Title 2'/>
-                <Post description='Hi, how are you 3' title='Title 3'/>
+                {postItems}
             </div>
         </div>
     );
