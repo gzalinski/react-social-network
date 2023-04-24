@@ -2,24 +2,31 @@ import React from "react";
 import s from './menu.module.css'
 import {NavLink} from "react-router-dom";
 
+
+//({isActive}) => isActive ? s.active : ''
 const Menu = (props) => {
+
+    const addClassActive = ({isActive}) => {
+        return isActive ? s.active : '';
+    }
+
     return (
         <nav className={s.nav}>
             <ul className={s.list}>
                 <li className={s.item}>
-                    <NavLink to="/profile"  className={ ({isActive}) => isActive && s.active } >Profile</NavLink>
+                    <NavLink to="/profile" className={addClassActive}>Profile</NavLink>
                 </li>
                 <li className={s.item}>
-                    <NavLink to="/dialogs" className={ ({isActive}) => isActive && s.active }>Dialogs</NavLink>
+                    <NavLink to="/dialogs" className={addClassActive}>Dialogs</NavLink>
                 </li>
                 <li className={s.item}>
-                    <NavLink to="/news" className={ ({isActive}) => isActive && s.active } > News </NavLink>
+                    <NavLink to="/news" className={addClassActive}> News </NavLink>
                 </li>
                 <li className={s.item}>
-                    <NavLink to="/music" className={ ({isActive}) => isActive && s.active } > Music </NavLink>
+                    <NavLink to="/music" className={addClassActive}> Music </NavLink>
                 </li>
                 <li className={s.item}>
-                    <NavLink to="/settings" className={ ({isActive}) => isActive && s.active } > Settings </NavLink>
+                    <NavLink to="/settings" className={addClassActive}> Settings </NavLink>
                 </li>
             </ul>
         </nav>

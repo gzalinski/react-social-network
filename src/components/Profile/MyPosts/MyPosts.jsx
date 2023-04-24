@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-    let postItems = props?.posts?.map(item => <Post title={item.title} description={item.description} />)
+    let postItems = props?.posts?.map(item => <Post key={item.id} data={item} />)
 
     const elNewPostText = React.useRef();
     //

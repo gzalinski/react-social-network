@@ -8,7 +8,7 @@ const Dialogs = ({data}) => {
 
     // create an array of DialogItem components using the map() method
     let dialogItems = data?.dialogs?.map(item => <DialogItem key={item.id} id={item.id} name={item.name} />)
-    let messageItems = data?.messages?.map(item => <Message text={item.text} />)
+    let messageItems = data?.messages?.map(item => <Message key={item.id} text={item.text} />)
 
     return (
         <div className={s.dialogs}>
