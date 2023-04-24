@@ -4,7 +4,7 @@ import Menu from "./components/Sidebar/menu";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-const App = ({state, addPost}) => {
+const App = ({state, addPost, updateNewPostText}) => {
 
     return (
         <BrowserRouter>
@@ -16,7 +16,7 @@ const App = ({state, addPost}) => {
                     </aside>
                     <div className="site__content">
                         <Routes>
-                            <Route path='/profile' element={<Profile data={state.profilePage} addPost={addPost}/>}/>
+                            <Route path='/profile' element={<Profile data={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText} />}/>
                             <Route path='/dialogs' element={<Dialogs data={state.dialogsPage} />}/>
                         </Routes>
                     </div>
