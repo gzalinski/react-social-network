@@ -13,6 +13,7 @@ const Dialogs = ({data, addMessage, updateNewMessageText}) => {
 
     const elNewMessageText = React.useRef();
 
+
     const onMessageChange = () =>{
         const text = elNewMessageText.current.value;
         updateNewMessageText(text)
