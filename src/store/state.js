@@ -1,6 +1,6 @@
 class AppStore {
     constructor() {
-        this._subscriber = () => {
+        this._callSubscriber = () => {
             console.log('no subscribers (observers)');
         };
 
@@ -32,9 +32,7 @@ class AppStore {
         };
     }
 
-    rerenderEntireTree(state) {
-        console.log('State changed')
-    }
+
 
     getState() {
         return this._state;
@@ -53,10 +51,10 @@ class AppStore {
     }
 
     subscribe(observer) {
-        this.rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     }
 
-    addPost() {
+    _addPost() {
         const newPost = {
             id: 5,
             description: this._state.profilePage.newPostText,
@@ -65,15 +63,9 @@ class AppStore {
 
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostText = ''
-        this.rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     }
-
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this.rerenderEntireTree(this._state);
-    }
-
-    addMessage() {
+    _addMessage() {
         const newMessage = {
             id: 5,
             text: this._state.dialogsPage.newMessageText
@@ -81,12 +73,34 @@ class AppStore {
 
         this._state.dialogsPage.messages.push(newMessage)
         this._state.dialogsPage.newMessageText = ''
-        this.rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     }
 
-    updateNewMessageText(newMessage) {
+    _updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+    }
+
+    _updateNewMessageText(newMessage) {
         this._state.dialogsPage.newMessageText = newMessage;
-        this.rerenderEntireTree(this.getState());
+        this._callSubscriber(this._state);
+    }
+
+    dispatch(action){
+        switch (action?.type){
+            case "add-post":
+                this._addPost()
+            break;
+            case "add-message":
+                this._addMessage()
+                break;
+            case "update-new-post-text":
+                this._updateNewPostText(action.newText)
+            break;
+            case "update-new-message-text":
+                this._updateNewMessageText(action.newText)
+            break;
+        }
     }
 }
 

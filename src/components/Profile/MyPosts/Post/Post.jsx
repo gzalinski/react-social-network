@@ -14,7 +14,6 @@ const Post = ({data}) => {
                 </div>
             </div>
         </article>
-
     );
 }
 

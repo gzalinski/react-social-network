@@ -8,7 +8,7 @@ import App from "./App";
 
 const rerenderEntireTree = () => {
     ReactDOM.render(
-        <App store={Store} />,
+        <App store={Store} dispatch={Store.dispatch.bind(Store)} />,
         document.getElementById('root')
     );
 };
