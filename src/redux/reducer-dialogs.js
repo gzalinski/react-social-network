@@ -18,8 +18,10 @@ const initialState = {
 }
 
 const reducerDialogs = (state = initialState, action) => {
-    let stateCopy = {...state}
-
+    let stateCopy = {
+        ...state,
+        // messages: [ ...state.messages ]
+    }
 
     switch (action.type) {
         case ADD_MESSAGE:
