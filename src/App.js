@@ -8,7 +8,6 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const App = (props) => {
 
     return (
-        <BrowserRouter>
             <div className="site__wrapper">
                 <Header/>
                 <main className="site__main">
@@ -24,7 +23,6 @@ const App = (props) => {
                 </main>
                 <Footer/>
             </div>
-        </BrowserRouter>
     );
 }
 
