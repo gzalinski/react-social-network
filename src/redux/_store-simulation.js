@@ -1,3 +1,8 @@
+import reducerProfile from "./reducer-profile";
+import reducerDialogs from "./reducer-dialogs";
+import reducerSidebar from "./reducer-sidebar";
+
+
 class AppStore {
     constructor() {
         this._callSubscriber = () => {
@@ -33,7 +38,6 @@ class AppStore {
     }
 
 
-
     getState() {
         return this._state;
     }
@@ -54,56 +58,17 @@ class AppStore {
         this._callSubscriber = observer;
     }
 
-    _addPost() {
-        const newPost = {
-            id: 5,
-            description: this._state.profilePage.newPostText,
-            like: 0
-        }
 
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._callSubscriber(this._state);
-    }
-    _addMessage() {
-        const newMessage = {
-            id: 5,
-            text: this._state.dialogsPage.newMessageText
-        }
+    dispatch(action) {
+        this._state.profilePage = reducerProfile(this._state.profilePage, action);
+        this._state.dialogsPage = reducerDialogs(this._state.dialogsPage, action);
+        this._state.sidebar = reducerSidebar(this._state.sidebar, action);
 
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._callSubscriber(this._state);
-    }
-
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    }
-
-    _updateNewMessageText(newMessage) {
-        this._state.dialogsPage.newMessageText = newMessage;
-        this._callSubscriber(this._state);
-    }
-
-    dispatch(action){
-        switch (action?.type){
-            case "add-post":
-                this._addPost()
-            break;
-            case "add-message":
-                this._addMessage()
-                break;
-            case "update-new-post-text":
-                this._updateNewPostText(action.newText)
-            break;
-            case "update-new-message-text":
-                this._updateNewMessageText(action.newText)
-            break;
-        }
+        this._callSubscriber(this._state)
     }
 }
 
-let Store = new AppStore();
+let _store = new AppStore();
 
-export default Store;
+export default _store;
+

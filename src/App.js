@@ -2,9 +2,10 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Menu from "./components/Sidebar/menu";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
+
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-const App = ({store,dispatch}) => {
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+const App = (props) => {
 
     return (
         <BrowserRouter>
@@ -16,8 +17,8 @@ const App = ({store,dispatch}) => {
                     </aside>
                     <div className="site__content">
                         <Routes>
-                            <Route path='/profile' element={<Profile data={store.getProfilePage()} dispatch={dispatch}  />}/>
-                            <Route path='/dialogs' element={<Dialogs data={store.getDialogsPage()} dispatch={dispatch}  />}/>
+                            <Route path='/profile' element={<Profile store={props.store} />}/>
+                            <Route path='/dialogs' element={<DialogsContainer store={props.store}  />}/>
                         </Routes>
                     </div>
                 </main>
